@@ -7,8 +7,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="signup.php">Sign up</a></li>
-                <li><a href="login.php">Log in</a></li>
+                <li><a href="login/signup.html">Sign up</a></li>
+                <li><a href="login/signin.html">Log in</a></li>
             </ul>
         </nav>
     </header>
