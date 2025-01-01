@@ -20,7 +20,7 @@ try {
         $username = $data['username'] ?? '';
         $email = $data['email'] ?? '';
         $password = $data['password'] ?? '';
-
+        
         $registration = new UserRegistration($conn);
         $result = $registration->register($username, $email, $password);
 

@@ -36,7 +36,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
     
         if (result.success) {
             setTimeout(() => {
-                window.location.reload(); // Reload or redirect as needed
+                window.location.href="../index.php"; // Reload or redirect as needed
             }, 2000);
         }
     } catch (error) {

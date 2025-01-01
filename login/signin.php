@@ -1,40 +1,12 @@
 <?php
 
-class Login {
-    private $conn;
-
-    public function __construct($db) {
-        $this->conn = $db;
-    }
-
-    public function authenticate($username, $password) {
-        $sql = "SELECT password FROM users WHERE username = '$username'";
-
-
-        $result = $this->conn->query($sql);
-
-        if ($result->num_rows > 0) {
-
-            $row = $result->fetch_assoc();
-
-
-            if (password_verify($password, $row['password'])) {
-                return "Logged in!";
-            } else {
-                return "Invalid password.";
-            }
-        } else {
-            return "User does not exist.";
-        }
-    }
-}
-
 include '../db.php'; 
+include 'user_login.php';
 
 $db = new Database();
 $conn = $db->getConnection();
 
-$login = new Login($conn);
+$login = new UserLogin($conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];

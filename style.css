@@ -27,6 +27,13 @@ nav ul {
     text-align: right;
 }
 
+nav li {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+}
+
 nav ul li {
     display: inline;
     margin-right: 30px;

@@ -21,7 +21,14 @@ class UserRegistration
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
-
+        $sql1 = "SELECT * FROM users WHERE username = ? OR email = ?"; 
+        $stmt = $this->conn->prepare($sql1); 
+        $stmt->bind_param("ss", $username, $email); 
+        $stmt->execute(); $result = $stmt->get_result(); 
+        if ($result->num_rows > 0) { 
+            return ["success" => false, "message" => "Username or email already exists."];
+        }
+        
         if ($this->conn->query($sql) === TRUE) {
             return ["success" => true, "message" => "Registration successful!"];
         } else {
